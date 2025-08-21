@@ -1,0 +1,23 @@
+Curriculum_finetune.py:
+進行遞迴式學習法的模型微調，最終產出為相關權重檔。
+
+train_llama.py
+進行一般的模型微調
+
+Matrix.py
+模型推論程式，於372以及373行決定要推論的資料以及匯出檔案名稱及位置。275行的 load_model()函式決定了模型以及相關權重的加載。相關變數皆有資料後便可以進行推論，並且匯出結果為csv檔案。後續會依此繪製混淆矩陣，若出現讀取問題可以改為執行draw_matrix.py檔案。
+
+draw_matrix.py
+讀取csv檔案並繪製混淆矩陣，會產出一張混淆矩陣圖以及相關指標的計算結果。
+
+get_ESG.py
+讀取來自High Risk和Low Risk資料夾的esg報告書(pdf)，自動進行段落切割、難度及類別標註等處理。後半段程式進行相似度篩選，最終產出原始合成資料集
+
+loss_fugure.py
+讀取微調完成後產出的trainer_state.json檔案，將其中的loss值變化繪製為曲線，包含一般微調和漸進式微調方法。
+
+test_hall.py
+首先進行繪製混淆矩陣，並檢視模型的答錯狀況
+
+Flesch-Kincaid.py
+獨立進行Flesch-Kincaid Grade Level計算，此功能已整合至get_ESG.py中
